@@ -5,12 +5,12 @@
 'use strict';
 var UMENG = require('..');
 var should = require('should');
-var APPKEY = '';
-var MASTERSECRET = '';
-var DEVICETOKENS = ''
+var APPKEY = 'x';
+var MASTERSECRET = 'x';
+var DEVICETOKENS = 'x-9xMN_XSN76LnEnAI0Wi4MZO';
 
 describe('umeng server push test', function () {
-	xit('good testCase for android', function (done) {
+	it('good testCase for android', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
 			app_master_secret: MASTERSECRET
@@ -23,7 +23,7 @@ describe('umeng server push test', function () {
 			body: {
 				ticker: 'test ticker notification',
 				title: 'test title notification',
-				text: 'test title notification',
+				text: 'test text notification',
 				custom: {
 					type: 1
 				}
@@ -37,7 +37,26 @@ describe('umeng server push test', function () {
 			})
 	});
 
-	it('good testCase for ios', function (done) {
+	it('good testCase for get status', function (done) {
+		var umeng = new UMENG({
+			appKey: APPKEY,
+			app_master_secret: MASTERSECRET
+		});
+		umeng.getStatus({
+			"timestamp":"xx",
+			"validation_token":"xx",
+			"task_id":"xx"
+		}).then(function (data) {
+				(data.body && data.body.ret === 'SUCCESS').should.be.true;
+			}).catch(function (err) {
+				(!err).should.be.true;
+			}).finally(function () {
+				done()
+			})
+	});
+
+
+	xit('good testCase for ios', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
 			app_master_secret: MASTERSECRET
