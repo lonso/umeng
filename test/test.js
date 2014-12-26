@@ -5,12 +5,12 @@
 'use strict';
 var UMENG = require('..');
 var should = require('should');
-var APPKEY = 'x';
-var MASTERSECRET = 'x';
-var DEVICETOKENS = 'x-9xMN_XSN76LnEnAI0Wi4MZO';
+var APPKEY = 'YOUR APPKEY';
+var MASTERSECRET = 'YOU MASTERSECRET';
+var DEVICETOKENS = 'YOUR DEVICETOKENS';
 
 describe('umeng server push test', function () {
-	it('good testCase for android', function (done) {
+	xit('good testCase for android', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
 			app_master_secret: MASTERSECRET
@@ -36,25 +36,6 @@ describe('umeng server push test', function () {
 				done()
 			})
 	});
-
-	it('good testCase for get status', function (done) {
-		var umeng = new UMENG({
-			appKey: APPKEY,
-			app_master_secret: MASTERSECRET
-		});
-		umeng.getStatus({
-			"timestamp":"xx",
-			"validation_token":"xx",
-			"task_id":"xx"
-		}).then(function (data) {
-				(data.body && data.body.ret === 'SUCCESS').should.be.true;
-			}).catch(function (err) {
-				(!err).should.be.true;
-			}).finally(function () {
-				done()
-			})
-	});
-
 
 	xit('good testCase for ios', function (done) {
 		var umeng = new UMENG({
@@ -82,4 +63,61 @@ describe('umeng server push test', function () {
 				done()
 			})
 	});
+
+
+	xit('good testCase for get status', function (done) {
+		var umeng = new UMENG({
+			appKey: APPKEY,
+			app_master_secret: MASTERSECRET
+		});
+		umeng.getStatus({
+			"timestamp": "xx",
+			"validation_token": "xx",
+			"task_id": "xx"
+		}).then(function (data) {
+				(data.body && data.body.ret === 'SUCCESS').should.be.true;
+			}).catch(function (err) {
+				(!err).should.be.true;
+			}).finally(function () {
+				done()
+			})
+	});
+
+
+	xit('good testCase for cancel', function (done) {
+		var umeng = new UMENG({
+			appKey: APPKEY,
+			app_master_secret: MASTERSECRET
+		});
+		umeng.cancel({
+			"timestamp": "xx",
+			"validation_token": "xx",
+			"task_id": "xx"
+		}).then(function (data) {
+				(data.body && data.body.ret === 'SUCCESS').should.be.true;
+			}).catch(function (err) {
+				(!err).should.be.true;
+			}).finally(function () {
+				done()
+			})
+	});
+
+	it('good testCase for upload', function (done) {
+		var umeng = new UMENG({
+			appKey: APPKEY,
+			app_master_secret: MASTERSECRET
+		});
+		umeng.upload({
+			"timestamp": "xx",
+			"validation_token": "xx",
+			"content": "xx"
+		}).then(function (data) {
+				(data.body && data.body.ret === 'SUCCESS').should.be.true;
+			}).catch(function (err) {
+				(!err).should.be.true;
+			}).finally(function () {
+				done()
+			})
+	});
+
 });

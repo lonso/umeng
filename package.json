@@ -1,6 +1,6 @@
 {
   "name": "umeng",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "umeng push server by nodejs",
   "main": "index.js",
   "scripts": {
