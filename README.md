@@ -29,30 +29,48 @@ Example
 		})
 		
 		
-	#ios push
-	
-	umeng.iosPush({
-			type: 'unicast',
-			device_tokens: DEVICETOKENS,
-			payload: {
-				body: {
-					aps: {
-						alert: 'test alert notification'
-					},
-					custom: {
-						type: 1
-					}
-				}
-			}
-		})
-		
-	#getstatus
-	
-	umeng.getStatus({
-			"timestamp":"xx",
-			"validation_token":"xx",
-			"task_id":"xx"
-		})
+  #ios push
+
+  umeng.iosPush({
+            type: 'unicast',
+            device_tokens: DEVICETOKENS,
+            payload: {
+                body: {
+                    aps: {
+                        alert: 'test alert notification'
+                    },
+                    custom: {
+                        type: 1
+                    }
+                }
+            }
+        })
+
+  #getstatus
+
+  umeng.getStatus({
+            "timestamp":"xx",
+            "validation_token":"xx",
+            "task_id":"xx"
+        })
+
+
+  #cancel
+
+  umeng.cancel({
+                    "timestamp": "xx",
+                    "validation_token": "xx",
+                    "task_id": "xx"
+               })
+
+
+  #upload
+
+  umeng.upload({
+                    "timestamp": "xx",
+                    "validation_token": "xx",
+                    "content": "xx"
+               })
 		
 ```
 License
