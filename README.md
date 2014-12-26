@@ -2,6 +2,7 @@ umeng
 =====
 
 umeng push server by nodejs.This module create by promise.
+Reference api http://dev.umeng.com/message/ios/api-server-doc and http://dev.umeng.com/message/android/api-server-doc
 
 Example
 =====
