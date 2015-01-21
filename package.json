@@ -1,6 +1,6 @@
 {
   "name": "umeng",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "umeng push server by nodejs",
   "main": "index.js",
   "scripts": {
@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/lonso/umeng",
   "dependencies": {
-    "bluebird": "^2.3.11",
-    "request": "^2.51.0"
+    "bluebird": "^2.3.11"
   },
   "devDependencies": {
     "should": "^4.4.1"

@@ -5,12 +5,12 @@
 'use strict';
 var UMENG = require('..');
 var should = require('should');
-var APPKEY = 'YOUR APPKEY';
-var MASTERSECRET = 'YOU MASTERSECRET';
-var DEVICETOKENS = 'YOUR DEVICETOKENS';
+var APPKEY = '5416947afd98c56590002d10';
+var MASTERSECRET = '9z5ptchpnxovukk5manqd2zul20tfcxt';
+var DEVICETOKENS = 'AsYJgN3P91OSVk6uCA92-4wwSpNd6KJbjUqkTLFiewC8';
 
 describe('umeng server push test', function () {
-	xit('good testCase for android', function (done) {
+	it('good testCase for android', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
 			app_master_secret: MASTERSECRET
@@ -29,9 +29,9 @@ describe('umeng server push test', function () {
 				}
 			}
 		}).then(function (data) {
-				(data && data.ret === 'SUCCESS').should.be.true;
+					(data && data.ret === 'SUCCESS').should.be.true;
 			}).catch(function (err) {
-				(!err).should.be.true;
+					(!err).should.be.true;
 			}).finally(function () {
 				done()
 			})
@@ -102,7 +102,7 @@ describe('umeng server push test', function () {
 			})
 	});
 
-	it('good testCase for upload', function (done) {
+	xit('good testCase for upload', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
 			app_master_secret: MASTERSECRET
