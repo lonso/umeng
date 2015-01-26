@@ -5,16 +5,20 @@
 'use strict';
 var UMENG = require('..');
 var should = require('should');
-var APPKEY = '5416947afd98c56590002d10';
-var MASTERSECRET = '9z5ptchpnxovukk5manqd2zul20tfcxt';
-var DEVICETOKENS = 'AsYJgN3P91OSVk6uCA92-4wwSpNd6KJbjUqkTLFiewC8';
+var APPKEY = 'xxx';
+var MASTERSECRET = 'xxx';
+var DEVICETOKENS = 'xxx';
+var IOSAPPKEY='xxx';
+var ISOAPPMASTERSECRET= 'xxx';
+var IOSDEVICETOKENS = 'xxx'
 
 describe('umeng server push test', function () {
-	it('good testCase for android', function (done) {
+	xit('good testCase for android', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
-			app_master_secret: MASTERSECRET
-
+			app_master_secret: MASTERSECRET,
+			ios_appKey:IOSAPPKEY,
+			ios_app_master_secret: ISOAPPMASTERSECRET
 		});
 		umeng.androidPush({
 			type: 'unicast',
@@ -37,14 +41,16 @@ describe('umeng server push test', function () {
 			})
 	});
 
-	xit('good testCase for ios', function (done) {
+	it.only('good testCase for ios', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
-			app_master_secret: MASTERSECRET
+			app_master_secret: MASTERSECRET,
+			ios_appKey:IOSAPPKEY,
+			ios_app_master_secret: ISOAPPMASTERSECRET
 		});
 		umeng.iosPush({
 			type: 'unicast',
-			device_tokens: DEVICETOKENS,
+			device_tokens: IOSDEVICETOKENS,
 			payload: {
 				body: {
 					aps: {
@@ -58,6 +64,7 @@ describe('umeng server push test', function () {
 		}).then(function (data) {
 				(data && data.ret === 'SUCCESS').should.be.true;
 			}).catch(function (err) {
+				console.log(err)
 				(!err).should.be.true;
 			}).finally(function () {
 				done()
@@ -68,7 +75,9 @@ describe('umeng server push test', function () {
 	xit('good testCase for get status', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
-			app_master_secret: MASTERSECRET
+			app_master_secret: MASTERSECRET,
+			ios_appKey:IOSAPPKEY,
+			ios_app_master_secret: ISOAPPMASTERSECRET
 		});
 		umeng.getStatus({
 			"timestamp": "xx",
@@ -87,7 +96,9 @@ describe('umeng server push test', function () {
 	xit('good testCase for cancel', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
-			app_master_secret: MASTERSECRET
+			app_master_secret: MASTERSECRET,
+			ios_appKey:IOSAPPKEY,
+			ios_app_master_secret: ISOAPPMASTERSECRET
 		});
 		umeng.cancel({
 			"timestamp": "xx",
@@ -105,7 +116,9 @@ describe('umeng server push test', function () {
 	xit('good testCase for upload', function (done) {
 		var umeng = new UMENG({
 			appKey: APPKEY,
-			app_master_secret: MASTERSECRET
+			app_master_secret: MASTERSECRET,
+			ios_appKey:IOSAPPKEY,
+			ios_app_master_secret: ISOAPPMASTERSECRET
 		});
 		umeng.upload({
 			"timestamp": "xx",
